@@ -1,0 +1,23 @@
+{
+  "name": "luweiss/wechat",
+  "description": "PHP Wechat SDK",
+  "keywords": [
+    "Wechat"
+  ],
+  "type": "library",
+  "require": {
+    "doctrine/cache": "~1.3,<1.7",
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "authors": [
+    {
+      "name": "Lu Wei",
+      "homepage": "https://www.luweiss.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "luweiss\\Wechat\\": "src/Wechat"
+    }
+  }
+}

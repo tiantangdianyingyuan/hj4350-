@@ -1,0 +1,22 @@
+{
+    "name": "dream0727/city-service",
+    "description": "小程序同城配送服务",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+    {
+        "name": "dream0727",
+        "email": "984818992@qq.com"
+    }],
+    "require":
+    {
+        "luweiss/wechat": "^0.1.5"
+    },
+    "autoload":
+    {
+        "psr-4":
+        {
+            "CityService\\": "src"
+        }
+    }
+}

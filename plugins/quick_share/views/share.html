@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>一键分享</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script>
+const href = location.href.split('#')[0];
+console.log(href);
+const url = 'index.php?_mall_id=' + getQueryString('_mall_id') + '&r=plugin/quick_share/api/wechat/index';
+
+function getQueryString(name) {
+    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+        return unescape(r[2]);
+    }
+    return null;
+}
+
+//朋友圈转发缩略图
+$.ajax({
+    type: "POST",
+    url,
+    data: {
+        id: getQueryString('id'),
+        url: href
+    },
+    dataType: "JSONP",
+    jsonp: 'callback',
+    jsonpCallback: "successCallback",
+    success: function(response) {
+        if (response.code === 0) {
+            document.getElementById('title').innerHTML = response.data.share.title;
+            document.getElementsByTagName("img")[1].src = response.data.share.imgUrl;
+
+            wx.config(response.data.config);
+            wx.error(function(res) {
+                console.error(res.errMsg);
+            });
+            wx.ready(() => {
+                wx.updateTimelineShareData(response.data.share);
+            })
+        }
+    },
+});
+</script>
+<style>
+img {
+    width: 100vw;
+}
+</style>
+
+<body>
+    <div style="text-align:center">
+        <div id="title" style="height: 80px;background: #5affae;">朋友圈分享</div>
+        <img src="http://v4test.zjhejiang.com/web/temp/70f828b3222dbe12fef04865b87e89c26027501f.jpg?v=1571800578"
+         alt=""/>
+        <img src="" alt=""/>
+</div>
+</body>
+
+</html>

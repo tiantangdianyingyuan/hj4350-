@@ -1,0 +1,48 @@
+{
+  "require": {
+    "yiisoft/yii2": "~2.0.0",
+    "vlucas/phpdotenv": "^2.5.1",
+    "luweiss/wechat": "~0.1",
+    "wi1dcard/alipay-sdk": "~1.1",
+    "kosinix/grafika": "~2.0",
+    "guzzlehttp/guzzle": "~6.0",
+    "aliyuncs/oss-sdk-php": "~2.0",
+    "qcloud/cos-sdk-v5": "~1.0",
+    "qiniu/php-sdk": "~7.0",
+    "yiisoft/yii2-redis": "~2.0",
+    "yiisoft/yii2-queue": "~2.0",
+    "overtrue/easy-sms": "^1.1",
+    "alchemy/zippy": "~0.4.0",
+    "yiisoft/yii2-swiftmailer": "^2.0",
+    "doctrine/cache": "~1.3,<1.7",
+    "symfony/process": "<4.0",
+    "phpoffice/phpexcel": "^1.8.1",
+    "luweiss/hjkuaidi": "dev-master",
+    "jdorn/sql-formatter": "~1.2",
+    "dream0727/city-service": "v1.1.8"
+  },
+  "require-dev": {
+    "yiisoft/yii2-debug": "~2.0.0",
+    "yiisoft/yii2-gii": "~2.0.0",
+    "codeception/codeception": "^2.5",
+    "codeception/specify": "1.0",
+    "codeception/verify": "^1.0",
+    "flow/jsonpath": "~0.4.0"
+  },
+  "autoload": {
+    "files": [
+      "helpers/functions.php"
+    ],
+    "psr-4": {
+      "app\\core\\": [
+        "core/"
+      ]
+    }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/luweiss/hjkuaidi.git"
+    }
+  ]
+}
